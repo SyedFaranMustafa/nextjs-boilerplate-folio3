@@ -26,47 +26,24 @@ export async function SignIn(
   let loginResponse: any
   try {
     loginResponse = await login(user)
+    loginResponse = await getUserinfo({
+      Authorization: `Bearer ${loginResponse.data?.tokens?.accessToken}`,
+    })
   } catch (error) {
     console.log('error ', error)
 
     // If the user is not found, throw an error
-    throw new Error('User not found')
+    // throw new Error('User not found')
   }
 
-  // Get the user from the response
   user = {
     ...user,
     ...loginResponse.data,
   }
 
   // Create the session
-  let expires = new Date(Date.now() + 10 * 1000)
-  let session = await encrypt({
-    user,
-    expires,
-  })
-
-  // Save the session in a cookie
-  cookies().set('session', session, { expires, httpOnly: true })
-
-  let userResponse: any
-  try {
-    userResponse = await getUserinfo()
-    console.log('userResponse', userResponse)
-  } catch (error) {
-    console.log('error ', error)
-    // If the user data is not found, throw an error
-    throw new Error('User Date not found')
-  }
-
-  user = {
-    ...user,
-    ...userResponse.data,
-  }
-
-  // Create the session
-  expires = new Date(Date.now() + 10 * 1000)
-  session = await encrypt({
+  const expires = new Date(Date.now() + 10 * 1000)
+  const session = await encrypt({
     user,
     expires,
   })

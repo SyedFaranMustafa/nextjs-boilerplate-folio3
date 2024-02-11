@@ -4,25 +4,6 @@ import Image from 'next/image'
 export default async function Page() {
   const session = await getSession()
 
-  //   const handleSubmit = async (event: any) => {
-  //     console.log(event, 'event asd')
-
-  //     const payload = {
-  //       username: event.currentTarget.username.value,
-  //       password: event.currentTarget.password.value,
-  //     }
-
-  //     try {
-  //       // send the payload to the server
-  //       const response = await SignIn('credentials', payload, '/dashboard')
-
-  //       alert(JSON.stringify(response))
-
-  //       // redirect the user to /dashboard
-  //     } catch (error) {
-  //       alert(error)
-  //     }
-  //   }
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
       {JSON.stringify(session)}
@@ -127,6 +108,15 @@ export default async function Page() {
             </form>
           </div>
         </div>
+        <form
+          className="mt-4"
+          action={async () => {
+            'use server'
+            await SignOut('/login')
+          }}
+        >
+          <button type="submit">Sign out</button>
+        </form>
       </div>
     </section>
   )

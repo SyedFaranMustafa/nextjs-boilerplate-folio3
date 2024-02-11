@@ -1,8 +1,8 @@
 // import { Session } from 'inspector';
 import { ApiClient } from '.'
 
-export const getUserinfo = () => {
-  return ApiClient.get(`/api/v2/auth/me`)
+export const getUserinfo = (payload) => {
+  return ApiClient.get(`/api/v2/auth/me`, payload)
 }
 
 export const login = (payload: any) => {
