@@ -29,7 +29,7 @@ export default async function Page() {
               className="space-y-4 md:space-y-6"
               action={async (event) => {
                 'use server'
-                await SignIn('credentials', event, '/login')
+                await SignIn('credentials', event, '/')
               }}
             >
               <div>

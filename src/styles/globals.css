@@ -31,3 +31,23 @@ body {
     text-wrap: balance;
   }
 }
+
+/* fonts */
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  letter-spacing: -0.05em;
+  color: rgb(var(--foreground-rgb));
+}
+
+a {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: -0.025em;
+  color: rgb(var(--foreground-rgb));
+  text-decoration: underline;
+}

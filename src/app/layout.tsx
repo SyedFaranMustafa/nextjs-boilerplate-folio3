@@ -9,7 +9,6 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Next.js with Windi CSS',
   description: 'Next.js with Windi CSS',
-  viewport: 'width=device-width, initial-scale=1',
   authors: ['SyedFaranMustafa'] as Author[],
 }
 

@@ -1,9 +1,10 @@
+'use server'
 import { cookies } from 'next/headers'
 import { login, getUserinfo } from '@services/auth'
 import { encrypt } from './utils'
 import { redirect } from 'next/navigation'
 
-// let auth type credentials or social provider like google, facebook, etc, deafult is credentials
+// let auth type credentials or social provider like google, facebook, etc, default is credentials
 type AuthType = 'credentials' | 'google' | 'facebook' | 'github'
 
 type callbackURL = string | null
